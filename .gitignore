@@ -1,0 +1,23 @@
+!.keep
+*.DS_Store
+*.swp
+*~
+/.bundle
+/.sass-cache
+/.vagrant
+/.byebug_history
+/cookbooks
+/config/app_config.yml
+/config/prod_deploy.rb
+/config/uat_deploy.rb
+/config/unicorn.production.rb
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/legacy
+/log/*.log
+/public/system
+/public/cad_avl_data_archives
+/tmp
+# Ignore application configuration
+/railsbox
+/.byebug_history
