@@ -1,0 +1,14 @@
+{
+  "name" : "Pandashop",
+  "description" : "",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::Pandashop::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["pandashop_on_install_theme"],
+    "on_inactive": ["pandashop_on_uninstall_theme"],
+    "on_theme_settings": ["pandashop_settings"]
+    //here all your hooks
+  }
+}
