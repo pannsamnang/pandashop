@@ -11,6 +11,74 @@
  *= require camaleon_cms/bootstrap.min.css
  *= require font-awesome
  */
-@import "materialize/components/color-variables";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu:300,700';
+// @import 'variables'
 @import 'materialize';
 @import "font-awesome";
+@import "flexslider";
+
+@import "font";
+@import "variables";
+@import "common";
+@import "single";
+
+body {
+  font-family: 'Montserrat';
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.primary-background {
+  background-color: $primary-color;
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.category-title {
+  text-transform: capitalize;
+  background: $primary-color;
+  padding: 4px 26px;
+  color: white;
+  position: relative;
+}
+
+.category-title::after, .category-title::before {
+  border-style: solid;
+    height: 0;
+    width: 0;
+    display: block;
+    content: "";
+    position: absolute;
+    border-color: $primary-color transparent;
+    top: 0;
+}
+
+.category-title::after {
+  right: -38px;
+  border-width: 22px 38px 23px 0;
+}
+
+.pagination li a {
+  border: none;
+}
+
+.pagination li.active {
+  background-color: $primary-color;
+}
+
+.pagination li.active a, .pagination li.active a:hover, .pagination > li > a:hover {
+  background: transparent;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: $primary-color;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  background-color: $primary-color;
+}

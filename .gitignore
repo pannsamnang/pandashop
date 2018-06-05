@@ -16,8 +16,10 @@
 /db/legacy
 /log/*.log
 /public/system
+/public/media
 /public/cad_avl_data_archives
 /tmp
 # Ignore application configuration
 /railsbox
 /.byebug_history
+Gemfile.lock

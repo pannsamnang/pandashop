@@ -1,0 +1,22 @@
+.container
+  - if @category.parent.present?
+    %h3
+      %span.category-title= "#{@category.parent.name} - #{@category.name}"
+  - else
+    %h3
+      %span.category-title= @category.name
+
+  .row
+    - @posts.decorate.each do |product|
+      .col.s12.m6.l3
+        =link_to product.the_url do
+          .card
+            .card-image
+              = image_tag product.the_thumb_url, class: 'img-responsive'
+            .card-content
+              .product-name
+                %h5= product.the_title
+              %span.price= product.the_price
+  .row
+    .col.s12.text-center
+      = paginate @posts

@@ -1,0 +1,39 @@
+.container-fluid
+.flexslider.main-slider
+  %ul.slides
+    %li
+      = image_tag theme_asset_url('images/demo_01_slide1.jpg'), class: 'img-responsive'
+    %li
+      = image_tag theme_asset_url('images/demo_01_slide2.jpg'), class: 'img-responsive'
+    %li
+      = image_tag theme_asset_url('images/demo_01_slide3.jpg'), class: 'img-responsive'
+.container
+  .row
+    .col.s12
+      %h3
+        %span.category-title New Arrival
+    - (current_site.the_products.decorate).each_with_index do |product, index|
+      .col.s12.m6.l3
+        =link_to product.the_url do
+          .card
+            .card-image
+              = image_tag product.the_thumb_url, class: 'img-responsive'
+            .card-content
+              .product-name
+                %h5= product.the_title
+              %span.price= product.the_price
+  .row
+    .col.s12
+      %h3
+        %span.category-title Best Sell
+        .arrow
+    - (current_site.the_post_type('commerce').the_posts.featured.decorate).each_with_index do |product, index|
+      .col.s12.m6.l3
+        =link_to product.the_url do
+          .card
+            .card-image
+              = image_tag product.the_thumb_url, class: 'img-responsive'
+            .card-content
+              .product-name
+                %h5= product.the_title
+              %span.price= product.the_price

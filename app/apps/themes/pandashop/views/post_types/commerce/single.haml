@@ -1,0 +1,55 @@
+.container
+  .row.product-single
+    .col.s12.m5.zoom-grid
+      #product_slider.flexslider
+        %ul.slides
+          - @post.the_photos.each do |img|
+            %li{"data-thumb" => "#{img.cama_parse_image_version}"}
+              .thumb-image
+                %img.img-responsive{:alt => "", "data-imagezoom" => "true", :src => img}
+    .col.s12.m7
+      %h2.text-center
+        = @post.the_title
+      .row
+        .col.s4
+          %h4
+            Code:
+        .col.s8
+          %h4#product_sku= @post.the_sku
+      .row
+        .col.s4
+          %h4 price:
+        .col.s8
+          %h4#product_price= "$ #{@post.price}"
+      .row
+        .col.s4
+          %h4.stock Availability:
+        .col.s8
+          %h4= @post.in_stock? ? 'In Stock' : 'Out of Stock'
+      - attrs = @post.the_attribute_fields('ecommerce_attrs').to_a
+      - if attrs.present?
+        - variants = attrs.group_by{ |v| v[:attr] }
+        - if variants.first.present?
+          .row
+            .col-md-12
+              - variants.each_with_index do |variant, index|
+                .row
+                  .col.s4
+                    %h4
+                      = variant[0].capitalize
+                      \:
+                  .col.s8
+                    .variant-item
+                      - if variant[0] == 'color'
+                        - variant[1].each do |variant_item|
+                          .chip.product-chip.chip-color{class: variant_item[:value]}
+                      - else
+                        - variant[1].each do |variant_item|
+                          .chip.product-chip= variant_item[:value].upcase
+
+  %hr
+  .row#product-info
+    .col.s12.text-center.information-title
+      %h3 Information
+    .col.s12
+      =raw @post.the_content

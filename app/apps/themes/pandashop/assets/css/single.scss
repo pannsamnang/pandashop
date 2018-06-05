@@ -1,0 +1,41 @@
+.product-single {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.variant-header {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.product-chip {
+  border-radius: 0;
+  border: 1px solid;
+}
+
+.chip-color {
+  width: 25px;
+  height: 25px;
+}
+
+#product_slider .flex-control-thumbs li {
+  width: 14%;
+}
+
+#product_slider {
+  border: 1px solid #e0e1e2;
+}
+
+#product-info {
+  border: 1px solid #e0e1e2;
+}
+
+.information-title {
+  background: $secondary-color;
+  color: white;
+}
+
+.variant-item {
+  padding-top: 17px;
+}

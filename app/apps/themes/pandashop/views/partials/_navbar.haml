@@ -1,0 +1,35 @@
+%nav.primary-background
+  .nav-wrapper
+    %a#logo.brand-logo
+      = link_to current_site.the_url do
+        = image_tag current_site.the_logo, class: 'responsive-img'
+    %a.button-collapse.right{"data-activates": "mobile-demo", href: "#"}
+      %i.material-icons menu
+    %ul#nav-mobile.right.hide-on-med-and-down
+      - cama_menu_parse_items(current_site.nav_menus.find_by_slug('main_menu').children).each_with_index do |item, index|
+        - if item[:has_children]
+          %li
+            %a.dropdown-button{"data-activates" => "menu-#{index}", :href => "#"}
+              = item[:label]
+              %i.material-icons.right arrow_drop_down
+            - if item[:levels] <= 1
+              %ul.dropdown-content{id: "menu-#{index}"}
+                - item[:children].each_with_index do |ss_item, index|
+                  %li
+                    = link_to ss_item[:label], ss_item[:url]
+        - else
+          %li= link_to item[:label], item[:url]
+    %ul#mobile-demo.side-nav
+      - cama_menu_parse_items(current_site.nav_menus.find_by_slug('main_menu').children).each_with_index do |item, index|
+        - if item[:has_children]
+          %li
+            %a.dropdown-button{"data-activates": "mobile-menu-#{index}", :href => "#"}
+              = item[:label]
+              %i.material-icons.right arrow_drop_down
+            - if item[:levels] <= 1
+              %ul.dropdown-content{id: "mobile-menu-#{index}"}
+                - item[:children].each_with_index do |ss_item, index|
+                  %li
+                    = link_to ss_item[:label], ss_item[:url]
+        - else
+          %li= link_to item[:label], item[:url]
