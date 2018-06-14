@@ -1,22 +1,44 @@
 .container
-  - if @category.parent.present?
-    %h3
-      %span.category-title= "#{@category.parent.name} - #{@category.name}"
-  - else
-    %h3
-      %span.category-title= @category.name
+  .row
+    .col.s12
+      - if @category.parent.present?
+        %h3
+          %span.category-title= "#{@category.parent.name} - #{@category.name}"
+      - else
+        %h2.text-center.blue-text= @category.name
 
-  .row
+  - if @category.parent.present?
     - @posts.decorate.each do |product|
-      .col.s12.m6.l3
-        =link_to product.the_url do
-          .card
-            .card-image
-              = image_tag product.the_thumb_url, class: 'img-responsive'
-            .card-content
-              .product-name
-                %h5= product.the_title
-              %span.price= product.the_price
-  .row
-    .col.s12.text-center
-      = paginate @posts
+      .row
+        .col.s12.m6.l3
+          =link_to product.the_url do
+            .card
+              .card-image
+                = image_tag product.the_thumb_url, class: 'img-responsive'
+              .card-content
+                .product-name
+                  %h5= product.the_title
+                %span.price= product.the_price
+  - else
+    - @category.children.decorate.each do |child|
+      .row
+        .col.s8
+          %h3
+            %span.category-title= child.name
+        .col.s4
+          = link_to 'More...', child.the_url
+      .row
+        - child.posts.limit(12).decorate.each do |product|
+          .col.s12.m6.l3
+            =link_to product.the_url do
+              .card
+                .card-image
+                  = image_tag product.the_thumb_url, class: 'img-responsive'
+                .card-content
+                  .product-name
+                    %h5= product.the_title
+                  %span.price= product.the_price
+  - if @category.parent.present?
+    .row
+      .col.s12.text-center
+        = paginate @posts

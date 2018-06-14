@@ -29,10 +29,13 @@
 
 #product-info {
   border: 1px solid #e0e1e2;
+  img {
+    max-width: 100%;
+  }
 }
 
 .information-title {
-  background: $secondary-color;
+  background-color: #5393FF;
   color: white;
 }
 

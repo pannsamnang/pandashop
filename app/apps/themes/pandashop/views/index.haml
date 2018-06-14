@@ -1,12 +1,8 @@
-.container-fluid
 .flexslider.main-slider
   %ul.slides
-    %li
-      = image_tag theme_asset_url('images/demo_01_slide1.jpg'), class: 'img-responsive'
-    %li
-      = image_tag theme_asset_url('images/demo_01_slide2.jpg'), class: 'img-responsive'
-    %li
-      = image_tag theme_asset_url('images/demo_01_slide3.jpg'), class: 'img-responsive'
+    - current_site.the_post_type('slideshow').the_posts.visible_frontend.decorate.each do |slider|
+      %li
+        = image_tag slider.the_image_url, class: 'img-responsive'
 .container
   .row
     .col.s12
