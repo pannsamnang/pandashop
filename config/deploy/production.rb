@@ -8,7 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 set :stage, :production
-server '18.216.74.27', user: 'unbuntu', roles: %w{app web db}
+server '18.220.9.39', user: 'deployer', roles: %w{app web db}
 
 # role-based syntax
 # ==================

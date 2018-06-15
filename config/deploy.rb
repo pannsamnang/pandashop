@@ -2,7 +2,7 @@
 lock "~> 3.10.2"
 
 set :application, 'pandashop'
-set :repo_url, "git@github.com:pannsamnang/pandashop.git"
+set :repo_url, "git://github.com:pannsamnang/pandashop.git"
 
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
@@ -14,6 +14,9 @@ set :scm, :git
 set :pty, true
 
 set :keep_releases, 5
+
+
+set :tmp_dir, "/home/deployer/tmp"
 
 namespace :deploy do
 
