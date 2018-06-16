@@ -1,8 +1,8 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.10.2"
+lock '3.7.2'
 
 set :application, 'pandashop'
-set :repo_url, "git://github.com:pannsamnang/pandashop.git"
+set :repo_url, 'git@github.com:pannsamnang/pandashop.git'
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
