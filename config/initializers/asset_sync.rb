@@ -1,4 +1,4 @@
-if (Rails.env.production? or Rails.env.staging?) && ENV['DISABLE_S3'] != 'true' 
+if (Rails.env.production? or Rails.env.staging?) && ENV['DISABLE_S3'] != 'true'
   AssetSync.configure do |config|
     config.fog_directory = ENV['FOG_DIRECTORY']
     config.fog_provider = 'AWS'

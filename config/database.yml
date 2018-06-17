@@ -23,7 +23,7 @@ staging:
 production:
   adapter: postgresql
   encoding: unicode
-  database: "<%= ENV['DATABASE'] %>_production"
+  database: "<%= ENV['DATABASE'] %>"
   username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['HOST'] %>
