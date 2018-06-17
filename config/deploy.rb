@@ -1,4 +1,4 @@
-lock '3.7.2'
+lock '3.11.0'
 
 set :application, 'pandashop'
 set :repo_url, 'git@github.com:pannsamnang/pandashop.git'
